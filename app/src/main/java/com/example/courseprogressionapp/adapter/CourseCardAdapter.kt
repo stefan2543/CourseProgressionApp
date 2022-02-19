@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.courseprogressionapp.R
+import com.example.courseprogressionapp.data.DataSource.courses
 
 class CourseCardAdapter(
     private val context: Context?,
@@ -25,7 +26,7 @@ class CourseCardAdapter(
     class CourseCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!) {
         val courseName: TextView = view!!.findViewById(R.id.course_name)
         //val idolAge: TextView = view!!.findViewById(R.id.idol_age)
-        //val idolHobby: TextView = view!!.findViewById(R.id.idol_hobbies)
+        val courseDescription: TextView = view!!.findViewById(R.id.course_description)
         val imageView: ImageView = view!!.findViewById(R.id.course_image)
     }
 
@@ -57,6 +58,6 @@ class CourseCardAdapter(
         holder.imageView.setImageResource(course.imageResourceId)
         holder.courseName.text = course.name
         //holder.idolAge.text = resources?.getString(R.string.dog_age, idol.age)
-        //holder.idolHobby.text = resources?.getString(R.string.dog_hobbies, idol.hobbies)
+        holder.courseDescription.text = resources?.getString(R.string.course_description, course.description)
     }
 }
