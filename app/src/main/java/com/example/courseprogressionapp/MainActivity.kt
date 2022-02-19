@@ -3,7 +3,7 @@ package com.example.courseprogressionapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.courseprogressionapp.ActivityMainBinding
+import com.example.courseprogressionapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 

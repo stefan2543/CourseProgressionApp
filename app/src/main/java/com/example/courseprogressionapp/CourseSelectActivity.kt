@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.courseprogressionapp.adapter.CourseCardAdapter
 import com.example.courseprogressionapp.Layout.Layout
+import com.example.courseprogressionapp.databinding.ActivityVertialListBinding
 
 class CourseSelectActivity : AppCompatActivity () {
 
