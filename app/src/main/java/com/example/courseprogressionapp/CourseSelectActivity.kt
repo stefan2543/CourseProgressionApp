@@ -3,6 +3,8 @@ package com.example.courseprogressionapp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.courseprogressionapp.adapter.CourseCardAdapter
+import com.example.courseprogressionapp.Layout.Layout
 
 class CourseSelectActivity : AppCompatActivity () {
 
