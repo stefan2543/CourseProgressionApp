@@ -1,26 +1,25 @@
 package com.example.courseprogressionapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.courseprogressionapp.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class CourseInfoActivity : AppCompatActivity() {
 
-    private lateinit var listIntent: Intent
     private lateinit var binding: ActivityMainBinding
+    private lateinit var listIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.startBtn.setOnClickListener { launchSemester () }
+        binding.addBtn.setOnClickListener { launchSemester () }
 
-        //setContentView(R.layout.activity_main)
     }
 
     private fun launchSemester() {
         listIntent = Intent(this, CourseSelectActivity::class.java)
         startActivity(listIntent)
     }
+
 }
