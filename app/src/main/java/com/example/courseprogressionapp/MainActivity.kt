@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.startBtn.setOnClickListener { launchSemester () }
-
-        //setContentView(R.layout.activity_main)
     }
 
     private fun launchSemester() {
