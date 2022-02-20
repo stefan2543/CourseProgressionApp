@@ -19,7 +19,10 @@ class FinalProgressionActivity : AppCompatActivity() {
 
         binding.gridRecyclerView.adapter = CourseCardAdapter(
             applicationContext,
-            Layout.GRID
+            Layout.GRID,
+            true,
+            true,
+            true
         )
 
         binding.editBtn.setOnClickListener { launchSemester () }

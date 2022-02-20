@@ -10,16 +10,23 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.courseprogressionapp.R
 import com.example.courseprogressionapp.data.DataSource.courses
 import com.example.courseprogressionapp.Layout.Layout.GRID
+import com.example.courseprogressionapp.model.Course
 
 class CourseCardAdapter(
     private val context: Context?,
-    private val layout: Int
+    private val layout: Int,
+    private val requirementOne: Boolean,
+    private val requirementTwo: Boolean,
+    private val requirementThree: Boolean
+
 ): RecyclerView.Adapter<CourseCardAdapter.CourseCardViewHolder>() {
 
     /**
      * Initialize variable with the idol's data taken from DataSource idol class
      */
     val courseData = courses
+    val validCourseData = mutableListOf<Course>()
+
 
     /**
      * Initialize view elements
@@ -28,6 +35,8 @@ class CourseCardAdapter(
         val courseName: TextView = view!!.findViewById(R.id.course_name)
         //val courseDescription: TextView = view!!.findViewById(R.id.course_description)
         val imageView: ImageView = view!!.findViewById(R.id.course_image)
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CourseCardViewHolder {
@@ -47,17 +56,31 @@ class CourseCardAdapter(
     /**
      * Returns the length of the list of idols
      */
-    override fun getItemCount(): Int = courseData.size
+    override fun getItemCount(): Int {
+        return if (!requirementOne) {
+            validCourseData.add(courseData[0])
+            validCourseData.size
+        } else if (!requirementTwo) {
+            validCourseData.add(courseData[1])
+            validCourseData.size
+        } else {
+            var index = 2
+            while (index <= courseData.size) {
+                validCourseData.add(courseData[index])
+                index++
+            }
+            validCourseData.size
+        }
+    }
 
     /**
      * Sets the data to be displayed in the view card using the position of the idol in the list
      */
     override fun onBindViewHolder(holder: CourseCardViewHolder, position: Int) {
         val resources = context?.resources
-        val course = courseData[position]
+        val course = validCourseData[position]
         holder.imageView.setImageResource(course.imageResourceId)
         holder.courseName.text = course.name
-        //holder.idolAge.text = resources?.getString(R.string.dog_age, idol.age)
         //holder.courseDescription.text = resources?.getString(R.string.course_description, course.description)
     }
 }
