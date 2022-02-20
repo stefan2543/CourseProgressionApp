@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Course Progression App</string>
+    <string name="course_description">Description: %1$s</string>
 </resources>

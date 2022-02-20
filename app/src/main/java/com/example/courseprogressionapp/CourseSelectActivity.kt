@@ -5,15 +5,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.courseprogressionapp.adapter.CourseCardAdapter
 import com.example.courseprogressionapp.Layout.Layout
+import com.example.courseprogressionapp.databinding.CourseSelectBinding
 
 class CourseSelectActivity : AppCompatActivity () {
 
-    private lateinit var binding: ActivityVerticalListBinding
+    private lateinit var binding: CourseSelectBinding
     private lateinit var listIntent: Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityVerticalListBinding.inflate(layoutInflater)
+        binding = CourseSelectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.verticalRecyclerView.adapter = CourseCardAdapter(
@@ -21,7 +22,7 @@ class CourseSelectActivity : AppCompatActivity () {
             Layout.VERTICAL
         )
 
-        binding.courseBtn.setOnClickListener { launchCourseInfo() }
+        binding.verticalRecyclerView.setOnClickListener { launchCourseInfo() }
 
         // Specify fixed size to improve performance
         binding.verticalRecyclerView.setHasFixedSize(true)
