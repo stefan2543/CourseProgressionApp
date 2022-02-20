@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/activity_grid_list.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/rvark/Downloads/CourseProgressionApp/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/rvark/Downloads/CourseProgressionApp/app/src/main/res/layout/activity_vertial_list.xml" value="0.12183383991894631" />
+        <entry key="..\:/Users/rvark/Downloads/CourseProgressionApp/app/src/main/res/layout/vertical_list_item.xml" value="0.12183383991894631" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/activity_vertial_list.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/course_info.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/course_select.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/scrut/AndroidStudioProjects/CourseProgressionApp/app/src/main/res/layout/grid_list_item.xml" value="0.22826086956521738" />
