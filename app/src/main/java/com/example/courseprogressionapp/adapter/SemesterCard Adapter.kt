@@ -25,7 +25,6 @@ class SemesterCardAdapter(
      * Initialize variable with the idol's data taken from DataSource idol class
      */
     val courseData = courses
-    val validCourseData = mutableListOf<Course>()
     val semesters: MutableList<String> = mutableListOf("1st Year Fall", "1st Year Spring", "2nd Year Fall", "2nd Year Spring", "3rd Year Fall", "3rd Year Spring", "4th Year Fall", "4th Year Spring")
 
 
@@ -72,27 +71,24 @@ class SemesterCardAdapter(
     override fun onBindViewHolder(holder: SemesterCardAdapter.SemesterCardViewHolder, position: Int) {
         val resources = context?.resources
         var index = 0
+        val validCourseData = mutableListOf<Course>()
         while (index < courseData.size) {
             if (courseData[index].chosenSemester == position) {
                 validCourseData.add(courseData[index])
             }
             index++
         }
-        index = 0
-        while (index < validCourseData.size) {
-            val course = courseData[index]
-            if (validCourseData.size >= 1) {
-                holder.courseImageOne.setImageResource(course.imageResourceId)
-                holder.courseNameOne.text = course.name
-            }
-            if (validCourseData.size >= 2) {
-                holder.courseImageTwo.setImageResource(course.imageResourceId)
-                holder.courseNameTwo.text = course.name
-            }
-            if (validCourseData.size >= 3) {
-                holder.courseImageThree.setImageResource(course.imageResourceId)
-                holder.courseNameThree.text = course.name
-            }
+        if (validCourseData.size >= 1) {
+            holder.courseImageOne.setImageResource(validCourseData[0].imageResourceId)
+            holder.courseNameOne.text = validCourseData[0].name
+        }
+        if (validCourseData.size >= 2) {
+            holder.courseImageTwo.setImageResource(validCourseData[1].imageResourceId)
+            holder.courseNameTwo.text = validCourseData[1].name
+        }
+        if (validCourseData.size >= 3) {
+            holder.courseImageThree.setImageResource(validCourseData[2].imageResourceId)
+            holder.courseNameThree.text = validCourseData[2].name
         }
         holder.semester.text = semesters[position]
     }

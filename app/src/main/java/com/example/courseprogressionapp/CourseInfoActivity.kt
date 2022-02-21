@@ -29,22 +29,40 @@ class CourseInfoActivity : AppCompatActivity() {
     }
 
     private fun launchSemester(nextSemester: Boolean) {
-        listIntent = if (intent.extras!!.getInt("semesterIndex") == 7) {
-            Intent(this, FinalProgressionActivity::class.java)
-        } else if (intent.extras!!.getBoolean("requirementThree")){
-            Intent(this, FinalProgressionActivity::class.java)
-        } else {
-            Intent(this, CourseSelectActivity::class.java)
-        }
-        //var chosenCourses = intent.extras!!.getParcelableArrayList("chosenCourses")
-        //chosenCourses.add(index: intent.extras!!.getInt("semesterIndex"), element: course)
+        var requirementThree = false
         val courseData = DataSource.courses
         val course = courseData[intent.extras!!.getInt("courseIndex")]
         course.chosenSemester = intent.extras!!.getInt("semesterIndex")
 
+        var index = 0
+        var numChosenCoursesTotal = 0
+        var numChosenCourses = 0
+        while (index < courseData.size) {
+            if (courseData[index].chosenSemester != -1) {
+                numChosenCoursesTotal++
+            }
+            if (courseData[index].chosenSemester == intent.extras!!.getInt("semesterIndex")) {
+                numChosenCourses++
+            }
+        }
+        if (numChosenCoursesTotal >= 6) {
+            requirementThree = true
+        }
+
+        listIntent = if (intent.extras!!.getInt("semesterIndex") == 7) {
+            Intent(this, FinalProgressionActivity::class.java)
+        } else if (requirementThree){
+            Intent(this, FinalProgressionActivity::class.java)
+        } else {
+            Intent(this, CourseSelectActivity::class.java)
+        }
+
         if (nextSemester) {
             listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex") + 1)
-        } else {
+        } else if (numChosenCourses >= 3) {
+            listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex") + 1)
+        }
+        else {
             listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex"))
         }
         if (!intent.extras!!.getBoolean("requirementOne")) {

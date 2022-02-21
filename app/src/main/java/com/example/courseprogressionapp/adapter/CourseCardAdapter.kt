@@ -25,7 +25,8 @@ class CourseCardAdapter(
      * Initialize variable with the idol's data taken from DataSource idol class
      */
     val courseData = courses
-    val validCourseData = mutableListOf<Course>()
+    var validCourseData = mutableListOf<Course>()
+
 
 
     /**
@@ -60,6 +61,7 @@ class CourseCardAdapter(
      * Returns the length of the list of idols
      */
     override fun getItemCount(): Int {
+        validCourseData = mutableListOf<Course>()
         return if (!requirementOne) {
             validCourseData.add(courseData[0])
             1
@@ -68,11 +70,14 @@ class CourseCardAdapter(
             1
         } else {
             var index = 2
+            var numCourses = 0
             while (index < courseData.size) {
+                if (courseData[index].chosenSemester == -1)
                 validCourseData.add(courseData[index])
+                numCourses++
                 index++
             }
-            10
+            numCourses
         }
     }
 
