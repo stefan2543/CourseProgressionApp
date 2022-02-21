@@ -6,10 +6,10 @@
 
     <!-- Add Image view and text view for courses -->
     <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
     android:id="@+id/course_image"
-    android:scaleType="centerCrop"
+    android:scaleType="fitXY"
     app:layout_constraintBottom_toTopOf="@+id/course_name"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
@@ -18,19 +18,25 @@
     </ImageView>
 
     <TextView
+        android:id="@+id/course_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/course_name"
-        app:layout_constraintTop_toBottomOf="@+id/course_image"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/course_image">
 
     </TextView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:id="@+id/course_description"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/course_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
