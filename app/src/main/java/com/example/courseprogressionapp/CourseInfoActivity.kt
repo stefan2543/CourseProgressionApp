@@ -44,6 +44,7 @@ class CourseInfoActivity : AppCompatActivity() {
             if (courseData[index].chosenSemester == intent.extras!!.getInt("semesterIndex")) {
                 numChosenCourses++
             }
+            index++
         }
         if (numChosenCoursesTotal >= 6) {
             requirementThree = true
@@ -74,8 +75,7 @@ class CourseInfoActivity : AppCompatActivity() {
             listIntent.putExtra("requirementOne", true)
             listIntent.putExtra("requirementTwo", true)
         }
-        listIntent.putExtra("requirementThree", intent.extras!!.getBoolean("requirementThree"))
-        listIntent.putExtra("chosenCourses", intent.extras!!.getParcelableArray("chosenCourses"))
+        listIntent.putExtra("requirementThree", requirementThree)
         startActivity(listIntent)
     }
 
