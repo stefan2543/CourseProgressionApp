@@ -4,5 +4,5 @@ import com.example.courseprogressionapp.model.Course
 import com.example.courseprogressionapp.R
 
 object ChosenCourses {
-    val courses: List<Course> = listOf(    )
+    val courses: MutableList<Course> = mutableListOf()
 }

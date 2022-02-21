@@ -50,7 +50,7 @@ class CourseSelectActivity : AppCompatActivity () {
         } else if (!intent.extras!!.getBoolean("requirementTwo")) {
             1
         } else {
-            position + 2
+            position
         }
 
         listIntent = Intent(this, CourseInfoActivity::class.java)

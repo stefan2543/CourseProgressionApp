@@ -33,15 +33,15 @@ class CourseInfoActivity : AppCompatActivity() {
         val courseData = DataSource.courses
         val course = courseData[intent.extras!!.getInt("courseIndex")]
         course.chosenSemester = intent.extras!!.getInt("semesterIndex")
+        val chosenCourseData = ChosenCourses.courses
+        chosenCourseData.add(course)
+        courseData.removeAt(intent.extras!!.getInt("courseIndex"))
 
         var index = 0
-        var numChosenCoursesTotal = 0
+        var numChosenCoursesTotal = chosenCourseData.size
         var numChosenCourses = 0
-        while (index < courseData.size) {
-            if (courseData[index].chosenSemester != -1) {
-                numChosenCoursesTotal++
-            }
-            if (courseData[index].chosenSemester == intent.extras!!.getInt("semesterIndex")) {
+        while (index < chosenCourseData.size) {
+            if (chosenCourseData[index].chosenSemester == intent.extras!!.getInt("semesterIndex")) {
                 numChosenCourses++
             }
             index++

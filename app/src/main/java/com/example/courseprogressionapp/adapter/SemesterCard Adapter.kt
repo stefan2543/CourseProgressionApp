@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.courseprogressionapp.R
-import com.example.courseprogressionapp.data.DataSource.courses
+import com.example.courseprogressionapp.data.ChosenCourses.courses
 import com.example.courseprogressionapp.Layout.Layout.GRID
 import com.example.courseprogressionapp.model.Course
 

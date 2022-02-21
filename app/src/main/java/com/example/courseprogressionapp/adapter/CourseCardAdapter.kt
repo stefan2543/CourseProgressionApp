@@ -25,8 +25,6 @@ class CourseCardAdapter(
      * Initialize variable with the idol's data taken from DataSource idol class
      */
     val courseData = courses
-    var validCourseData = mutableListOf<Course>()
-
 
 
     /**
@@ -61,32 +59,22 @@ class CourseCardAdapter(
      * Returns the length of the list of idols
      */
     override fun getItemCount(): Int {
-        validCourseData = mutableListOf<Course>()
         return if (!requirementOne) {
-            validCourseData.add(courseData[0])
             1
         } else if (!requirementTwo) {
-            validCourseData.add(courseData[1])
             1
         } else {
-            var index = 2
-            var numCourses = 0
-            while (index < courseData.size) {
-                if (courseData[index].chosenSemester == -1)
-                validCourseData.add(courseData[index])
-                numCourses++
-                index++
+            courseData.size
             }
-            numCourses
         }
-    }
+
 
     /**
      * Sets the data to be displayed in the view card using the position of the idol in the list
      */
-    override fun onBindViewHolder(holder: CourseCardViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CourseCardAdapter.CourseCardViewHolder, position: Int) {
         val resources = context?.resources
-        val course = validCourseData[position]
+        val course = courses[position]
         holder.imageView.setImageResource(course.imageResourceId)
         holder.courseName.text = course.name
     }

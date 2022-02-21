@@ -6,7 +6,7 @@ import com.example.courseprogressionapp.model.Course
 
 object DataSource {
 
-    val courses: List<Course> = listOf(
+    val courses: MutableList<Course> = mutableListOf(
         Course(
             R.drawable.cs303,
             "CS 303: Elements of Computers & Programming",
