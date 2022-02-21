@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
         listIntent.putExtra("requirementOne", requirementOne)
         listIntent.putExtra("requirementTwo", requirementTwo)
         listIntent.putExtra("requirementThree", requirementThree)
-        //listIntent.putExtra("chosenCourses", chosenCourses)
         startActivity(listIntent)
     }
 }
