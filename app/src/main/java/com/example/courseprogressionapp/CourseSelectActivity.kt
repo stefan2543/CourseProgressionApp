@@ -36,8 +36,6 @@ class CourseSelectActivity : AppCompatActivity () {
         // Specify fixed size to improve performance
         binding.verticalRecyclerView.setHasFixedSize(true)
 
-        // Enable up button for backward navigation
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.currentSemester.text = semesters[intent.extras!!.getInt("semesterIndex")]
 
@@ -45,16 +43,8 @@ class CourseSelectActivity : AppCompatActivity () {
     }
 
     private fun launchCourseInfo(position: Int) {
-        var courseIndex: Int = if (!intent.extras!!.getBoolean("requirementOne")) {
-            0
-        } else if (!intent.extras!!.getBoolean("requirementTwo")) {
-            1
-        } else {
-            position
-        }
-
         listIntent = Intent(this, CourseInfoActivity::class.java)
-        listIntent.putExtra("courseIndex", courseIndex)
+        listIntent.putExtra("courseIndex", position)
         listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex"))
         listIntent.putExtra("requirementOne", intent.extras!!.getBoolean("requirementOne"))
         listIntent.putExtra("requirementTwo", intent.extras!!.getBoolean("requirementTwo"))

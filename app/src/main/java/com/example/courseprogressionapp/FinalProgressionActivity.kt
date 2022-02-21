@@ -30,8 +30,6 @@ class FinalProgressionActivity : AppCompatActivity() {
         // Specify fixed size to improve performance
         binding.gridRecyclerView.setHasFixedSize(true)
 
-        // Enable up button for backward navigation
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun launchSemester() {
