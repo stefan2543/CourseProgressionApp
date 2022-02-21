@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.courseprogressionapp.data.DataSource
 import com.example.courseprogressionapp.databinding.CourseInfoBinding
+import com.example.courseprogressionapp.data.ChosenCourses
 
 
 class CourseInfoActivity : AppCompatActivity() {
@@ -35,6 +36,12 @@ class CourseInfoActivity : AppCompatActivity() {
         } else {
             Intent(this, CourseSelectActivity::class.java)
         }
+        //var chosenCourses = intent.extras!!.getParcelableArrayList("chosenCourses")
+        //chosenCourses.add(index: intent.extras!!.getInt("semesterIndex"), element: course)
+        val courseData = DataSource.courses
+        val course = courseData[intent.extras!!.getInt("courseIndex")]
+        course.chosenSemester = intent.extras!!.getInt("semesterIndex")
+
         if (nextSemester) {
             listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex") + 1)
         } else {
@@ -50,6 +57,7 @@ class CourseInfoActivity : AppCompatActivity() {
             listIntent.putExtra("requirementTwo", true)
         }
         listIntent.putExtra("requirementThree", intent.extras!!.getBoolean("requirementThree"))
+        listIntent.putExtra("chosenCourses", intent.extras!!.getParcelableArray("chosenCourses"))
         startActivity(listIntent)
     }
 

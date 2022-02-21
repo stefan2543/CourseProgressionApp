@@ -7,5 +7,6 @@ data class Course (
     @DrawableRes val imageResourceId: Int,
     val name: String,
     val description: String,
-    val source: String
+    val source: String,
+    var chosenSemester: Int
     )

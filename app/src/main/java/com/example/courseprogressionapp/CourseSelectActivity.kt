@@ -8,6 +8,8 @@ import com.example.courseprogressionapp.Layout.Layout
 import com.example.courseprogressionapp.databinding.CourseSelectBinding
 import com.example.courseprogressionapp.support.onItemClick
 
+
+
 class CourseSelectActivity : AppCompatActivity () {
 
     private lateinit var binding: CourseSelectBinding
@@ -55,6 +57,7 @@ class CourseSelectActivity : AppCompatActivity () {
         listIntent.putExtra("requirementOne", intent.extras!!.getBoolean("requirementOne"))
         listIntent.putExtra("requirementTwo", intent.extras!!.getBoolean("requirementTwo"))
         listIntent.putExtra("requirementThree", intent.extras!!.getBoolean("requirementThree"))
+        //listIntent.putExtra("chosenCourses", intent.extras!!.getParcelableArrayList("chosenCourses"))
         startActivity(listIntent)
     }
 

@@ -64,35 +64,36 @@ class SemesterCardAdapter(
     /**
      * Returns the length of the list of idols
      */
-    override fun getItemCount(): Int {
-        return if (!requirementOne) {
-            validCourseData.add(courseData[0])
-            1
-        } else if (!requirementTwo) {
-            validCourseData.add(courseData[1])
-            1
-        } else {
-            var index = 2
-            while (index < courseData.size) {
-                validCourseData.add(courseData[index])
-                index++
-            }
-            10
-        }
-    }
+    override fun getItemCount(): Int { return 8 }
 
     /**
      * Sets the data to be displayed in the view card using the position of the idol in the list
      */
     override fun onBindViewHolder(holder: SemesterCardAdapter.SemesterCardViewHolder, position: Int) {
         val resources = context?.resources
-        val course = validCourseData[position]
-        holder.courseImageOne.setImageResource(course.imageResourceId)
-        holder.courseNameOne.text = course.name
-        holder.courseImageTwo.setImageResource(course.imageResourceId)
-        holder.courseNameTwo.text = course.name
-        holder.courseImageThree.setImageResource(course.imageResourceId)
-        holder.courseNameThree.text = course.name
+        var index = 0
+        while (index < courseData.size) {
+            if (courseData[index].chosenSemester == position) {
+                validCourseData.add(courseData[index])
+            }
+            index++
+        }
+        index = 0
+        while (index < validCourseData.size) {
+            val course = courseData[index]
+            if (validCourseData.size >= 1) {
+                holder.courseImageOne.setImageResource(course.imageResourceId)
+                holder.courseNameOne.text = course.name
+            }
+            if (validCourseData.size >= 2) {
+                holder.courseImageTwo.setImageResource(course.imageResourceId)
+                holder.courseNameTwo.text = course.name
+            }
+            if (validCourseData.size >= 3) {
+                holder.courseImageThree.setImageResource(course.imageResourceId)
+                holder.courseNameThree.text = course.name
+            }
+        }
         holder.semester.text = semesters[position]
     }
 }

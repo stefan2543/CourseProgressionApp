@@ -13,6 +13,8 @@ class MainActivity : AppCompatActivity() {
     private var requirementOne = false
     private var requirementTwo = false
     private var requirementThree = false
+    //private val chosenCourses =  ArrayList<Any>()
+    
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         listIntent.putExtra("requirementOne", requirementOne)
         listIntent.putExtra("requirementTwo", requirementTwo)
         listIntent.putExtra("requirementThree", requirementThree)
+        //listIntent.putExtra("chosenCourses", chosenCourses)
         startActivity(listIntent)
     }
 }
