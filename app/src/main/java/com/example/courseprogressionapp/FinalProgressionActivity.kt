@@ -3,8 +3,8 @@ package com.example.courseprogressionapp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.courseprogressionapp.adapter.CourseCardAdapter
 import com.example.courseprogressionapp.Layout.Layout
+import com.example.courseprogressionapp.adapter.SemesterCardAdapter
 import com.example.courseprogressionapp.databinding.ActivityGridListBinding
 
 class FinalProgressionActivity : AppCompatActivity() {
@@ -17,12 +17,12 @@ class FinalProgressionActivity : AppCompatActivity() {
         binding = ActivityGridListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.gridRecyclerView.adapter = CourseCardAdapter(
+        binding.gridRecyclerView.adapter = SemesterCardAdapter(
             applicationContext,
             Layout.GRID,
-            true,
-            true,
-            true
+            intent.extras!!.getBoolean("requirementOne"),
+            intent.extras!!.getBoolean("requirementTwo"),
+            intent.extras!!.getBoolean("requirementThree")
         )
 
         binding.editBtn.setOnClickListener { launchSemester () }
