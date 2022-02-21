@@ -40,6 +40,8 @@ class CourseSelectActivity : AppCompatActivity () {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.currentSemester.text = semesters[intent.extras!!.getInt("semesterIndex")]
+
+        binding.skipBtn.setOnClickListener() { launchSemester () }
     }
 
     private fun launchCourseInfo(position: Int) {
@@ -57,7 +59,16 @@ class CourseSelectActivity : AppCompatActivity () {
         listIntent.putExtra("requirementOne", intent.extras!!.getBoolean("requirementOne"))
         listIntent.putExtra("requirementTwo", intent.extras!!.getBoolean("requirementTwo"))
         listIntent.putExtra("requirementThree", intent.extras!!.getBoolean("requirementThree"))
-        //listIntent.putExtra("chosenCourses", intent.extras!!.getParcelableArrayList("chosenCourses"))
+
+        startActivity(listIntent)
+    }
+
+    private fun launchSemester() {
+        listIntent = Intent(this, CourseSelectActivity::class.java)
+        listIntent.putExtra("semesterIndex", intent.extras!!.getInt("semesterIndex") + 1)
+        listIntent.putExtra("requirementOne", intent.extras!!.getBoolean("requirementOne"))
+        listIntent.putExtra("requirementTwo", intent.extras!!.getBoolean("requirementTwo"))
+        listIntent.putExtra("requirementThree", intent.extras!!.getBoolean("requirementThree"))
         startActivity(listIntent)
     }
 

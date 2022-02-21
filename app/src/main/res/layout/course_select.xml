@@ -42,4 +42,16 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@+id/instructions"
         tools:layout_editor_absoluteX="1dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/skipBtn"
+        app:layout_constraintTop_toBottomOf="@id/vertical_recycler_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Skip Semester">
+
+    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
