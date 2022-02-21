@@ -6,10 +6,10 @@
 
     <!-- Add Image view and text view for courses -->
     <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
     android:id="@+id/course_image"
-    android:scaleType="centerCrop"
+    android:scaleType="fitXY"
     app:layout_constraintBottom_toTopOf="@+id/course_name"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
