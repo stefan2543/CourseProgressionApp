@@ -19,8 +19,8 @@
     </TextView>
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/course_image_1"
         android:scaleType="fitXY"
         app:layout_constraintTop_toBottomOf="@+id/semester"
@@ -41,8 +41,8 @@
     </TextView>
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/course_image_2"
         android:scaleType="fitXY"
         app:layout_constraintTop_toBottomOf="@+id/course_name_1"
@@ -63,8 +63,8 @@
     </TextView>
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/course_image_3"
         android:scaleType="fitXY"
         app:layout_constraintTop_toBottomOf="@+id/course_name_2"
