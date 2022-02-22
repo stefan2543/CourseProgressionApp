@@ -3,9 +3,13 @@ package com.example.courseprogressionapp
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.courseprogressionapp.Layout.Layout
 import com.example.courseprogressionapp.adapter.SemesterCardAdapter
 import com.example.courseprogressionapp.databinding.ActivityGridListBinding
+
+/**
+ * Group 7
+ * File last updated: 2/21/22
+ */
 
 class FinalProgressionActivity : AppCompatActivity() {
 
@@ -18,14 +22,10 @@ class FinalProgressionActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.gridRecyclerView.adapter = SemesterCardAdapter(
-            applicationContext,
-            Layout.GRID,
-            intent.extras!!.getBoolean("requirementOne"),
-            intent.extras!!.getBoolean("requirementTwo"),
-            intent.extras!!.getBoolean("requirementThree")
-        )
 
-        binding.editBtn.setOnClickListener { launchSemester () }
+        )
+        // Future implementation of an Edit button
+        binding.editBtn.setOnClickListener { launchSemester() }
 
         // Specify fixed size to improve performance
         binding.gridRecyclerView.setHasFixedSize(true)

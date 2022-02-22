@@ -2,11 +2,16 @@ package com.example.courseprogressionapp.model
 
 import androidx.annotation.DrawableRes
 
-// This is course class template you add the skeleton of data info
-data class Course (
+/**
+ * Group 7
+ * File last updated: 2/21/22
+ */
+
+// This is course class template
+data class Course(
     @DrawableRes val imageResourceId: Int,
     val name: String,
     val description: String,
     val source: String,
     var chosenSemester: Int
-    )
+)

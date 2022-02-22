@@ -7,29 +7,34 @@ import com.example.courseprogressionapp.R
 typealias OnRecyclerViewItemClickListener = (recyclerView: RecyclerView, position: Int, v: View) -> Unit
 typealias OnRecyclerViewItemLongClickListener = (recyclerView: RecyclerView, position: Int, v: View) -> Boolean
 
+/**
+ * Code taken from https://stackoverflow.com/a/35917564 for recyclerView item click support
+ */
+
 class ItemClickSupport private constructor(private val recyclerView: RecyclerView) {
 
     private var onItemClickListener: OnRecyclerViewItemClickListener? = null
     private var onItemLongClickListener: OnRecyclerViewItemLongClickListener? = null
 
-    private val attachListener: RecyclerView.OnChildAttachStateChangeListener = object : RecyclerView.OnChildAttachStateChangeListener {
-        override fun onChildViewAttachedToWindow(view: View) {
-            // every time a new child view is attached add click listeners to it
-            val holder = this@ItemClickSupport.recyclerView.getChildViewHolder(view)
-                .takeIf { it is ItemClickSupportViewHolder } as? ItemClickSupportViewHolder
+    private val attachListener: RecyclerView.OnChildAttachStateChangeListener =
+        object : RecyclerView.OnChildAttachStateChangeListener {
+            override fun onChildViewAttachedToWindow(view: View) {
+                // every time a new child view is attached add click listeners to it
+                val holder = this@ItemClickSupport.recyclerView.getChildViewHolder(view)
+                    .takeIf { it is ItemClickSupportViewHolder } as? ItemClickSupportViewHolder
 
-            if (onItemClickListener != null && holder?.isClickable != false) {
-                view.setOnClickListener(onClickListener)
+                if (onItemClickListener != null && holder?.isClickable != false) {
+                    view.setOnClickListener(onClickListener)
+                }
+                if (onItemLongClickListener != null && holder?.isLongClickable != false) {
+                    view.setOnLongClickListener(onLongClickListener)
+                }
             }
-            if (onItemLongClickListener != null && holder?.isLongClickable != false) {
-                view.setOnLongClickListener(onLongClickListener)
+
+            override fun onChildViewDetachedFromWindow(view: View) {
+
             }
         }
-
-        override fun onChildViewDetachedFromWindow(view: View) {
-
-        }
-    }
 
     init {
         // the ID must be declared in XML, used to avoid
@@ -43,7 +48,8 @@ class ItemClickSupport private constructor(private val recyclerView: RecyclerVie
         fun addTo(view: RecyclerView): ItemClickSupport {
             // if there's already an ItemClickSupport attached
             // to this RecyclerView do not replace it, use it
-            var support: ItemClickSupport? = view.getTag(R.id.item_click_support) as? ItemClickSupport
+            var support: ItemClickSupport? =
+                view.getTag(R.id.item_click_support) as? ItemClickSupport
             if (support == null) {
                 support = ItemClickSupport(view)
             }
@@ -95,13 +101,15 @@ interface ItemClickSupportViewHolder {
 }
 
 // Extension function
-fun RecyclerView.addItemClickSupport(configuration: ItemClickSupport.() -> Unit = {}) = ItemClickSupport.addTo(this).apply(configuration)
+fun RecyclerView.addItemClickSupport(configuration: ItemClickSupport.() -> Unit = {}) =
+    ItemClickSupport.addTo(this).apply(configuration)
 
 fun RecyclerView.removeItemClickSupport() = ItemClickSupport.removeFrom(this)
 
 fun RecyclerView.onItemClick(onClick: OnRecyclerViewItemClickListener) {
     addItemClickSupport { onItemClick(onClick) }
 }
+
 fun RecyclerView.onItemLongClick(onLongClick: OnRecyclerViewItemLongClickListener) {
     addItemClickSupport { onItemLongClick(onLongClick) }
 }

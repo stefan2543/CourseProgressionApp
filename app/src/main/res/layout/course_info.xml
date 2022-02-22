@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Group 7
+File last updated: 2/21/22
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,17 +10,16 @@
     android:layout_height="match_parent"
     tools:context=".CourseInfoActivity">
 
-    <!-- Design course description with add class button -->
 
     <ImageView
         android:id="@+id/imageView_zoom"
-        app:layout_constraintBottom_toTopOf="@+id/course_name_zoom"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/course_name_zoom"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="130dp"
         tools:layout_editor_absoluteY="34dp"
         tools:srcCompat="@tools:sample/avatars" />
@@ -25,7 +28,7 @@
         android:id="@+id/course_name_zoom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -37,12 +40,12 @@
         android:id="@+id/course_description_zoom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/textview"
         android:textColor="@color/black"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@id/course_name_zoom"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/addBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/course_name_zoom"
         tools:layout_editor_absoluteX="21dp"
         tools:layout_editor_absoluteY="174dp" />
 
@@ -50,11 +53,11 @@
         android:id="@+id/addBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Next"
-        app:layout_constraintTop_toBottomOf="@+id/course_description_zoom"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintTop_toBottomOf="@+id/course_description_zoom"
         tools:layout_editor_absoluteX="133dp"
         tools:layout_editor_absoluteY="358dp" />
 
@@ -62,11 +65,11 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        app:layout_constraintTop_toBottomOf="@+id/course_description_zoom"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/course_description_zoom"
         tools:layout_editor_absoluteX="287dp"
         tools:layout_editor_absoluteY="315dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

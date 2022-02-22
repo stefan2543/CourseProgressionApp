@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.courseprogressionapp.databinding.ActivityMainBinding
 
+/**
+ * Group 7
+ * File last updated: 2/21/22
+ */
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var listIntent: Intent
@@ -13,7 +18,6 @@ class MainActivity : AppCompatActivity() {
     private var requirementOne = false
     private var requirementTwo = false
     private var requirementThree = false
-    //private val chosenCourses =  ArrayList<Any>()
     
 
     override fun onCreate(savedInstanceState: Bundle?) {

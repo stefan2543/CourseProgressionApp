@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+Group 7
+File last updated: 2/21/22
+-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background= "#FFA500">
+    android:background="#FFA500"
+    tools:context=".MainActivity">
 
-    <!-- Design welcome page -->
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome!"
+        android:text="@string/welcome"
         android:textColor="@color/white"
         android:textSize="21sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,11 +30,11 @@
         android:id="@+id/start_Btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Schedule"
-        app:layout_constraintTop_toBottomOf="@id/welcome"
+        android:text="@string/create_schedule"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/welcome"
         tools:layout_editor_absoluteX="158dp"
         tools:layout_editor_absoluteY="420dp" />
 
@@ -39,7 +42,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Course Scheduler"
+        android:text="@string/course_scheduler"
         android:textColor="@color/white"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/start_Btn"

@@ -1,4 +1,16 @@
+<!--
+Group 7
+File last updated: 2/21/22
+-->
 <resources>
     <string name="app_name">Course Progression App</string>
     <string name="course_description">Description: %1$s</string>
+    <string name="welcome">Welcome!</string>
+    <string name="create_schedule">Create Schedule</string>
+    <string name="course_scheduler">Course Scheduler</string>
+    <string name="textview">TextView</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="instructions">Click on Course to get more info and add to current semester</string>
+    <string name="skip_semester">Skip Semester</string>
 </resources>
